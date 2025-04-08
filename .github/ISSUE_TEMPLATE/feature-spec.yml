@@ -1,0 +1,30 @@
+## 📁 .github/ISSUE_TEMPLATE/feature-spec.yml
+
+```yaml
+name: 기능 명세
+description: 새로운 기능에 대한 정의서
+body:
+  - type: input
+    id: title
+    attributes:
+      label: 기능 제목
+      placeholder: 예) 사용자 초대 기능
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 기능 개요
+      placeholder: 어떤 기능인지 간략히 설명
+
+  - type: textarea
+    id: spec
+    attributes:
+      label: 상세 동작 및 조건
+      placeholder: 입력값, 서버 요청/응답, UI 흐름 등
+
+  - type: textarea
+    id: test
+    attributes:
+      label: 테스트 케이스
+      placeholder: 성공/실패 케이스, 에러 처리 등
+```
