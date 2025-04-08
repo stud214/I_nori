@@ -3,7 +3,7 @@ name: Docs Check
 on:
   pull_request:
     paths:
-      - 'docs/**'
+      - 'docs-site/docs/**'
       - '.github/**'
 
 jobs:
@@ -14,4 +14,4 @@ jobs:
       - name: Run Markdown Linter
         uses: DavidAnson/markdownlint-cli2-action@v15
         with:
-          globs: 'docs/**/*.md'
+          globs: 'docs-site/docs/**/*.md'
