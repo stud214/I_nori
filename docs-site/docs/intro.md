@@ -1,6 +1,6 @@
 ---
 id: intro
-title: 소개
+title: iNori 소개
 ---
 
 # 📱 iNori
