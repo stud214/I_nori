@@ -1,6 +1,5 @@
 ## 📁 .github/ISSUE_TEMPLATE/feature-spec.yml
 
-```yaml
 name: 기능 명세
 description: 새로운 기능에 대한 정의서
 body:
