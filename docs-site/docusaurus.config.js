@@ -10,7 +10,10 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          path: 'docs',
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
+          exclude: ['../../README.md'], // 루트 README 제외
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
