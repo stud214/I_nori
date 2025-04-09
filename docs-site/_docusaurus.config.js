@@ -1,6 +1,6 @@
 module.exports = {
   title: '아이노리(iNori)',
-  url: 'https://bnshyun.github.io',
+  url: 'http://localhost:3000',
   baseUrl: '/I_nori/',
   favicon: 'img/favicon.ico',
   organizationName: 'BnsHyun',
