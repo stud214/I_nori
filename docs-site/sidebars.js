@@ -4,7 +4,10 @@ module.exports = {
     {
       type: 'category',
       label: '기능 정의서',
-      items: ['features/invite-user'],
+      items: [
+              'features/invite-user',
+              'features/playlist'
+              ],
     },
     {
       type: 'category',
