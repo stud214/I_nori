@@ -7,6 +7,7 @@ module.exports = {
   projectName: 'I_nori',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  trailingSlash: true,
   presets: [
     [
       '@docusaurus/preset-classic',
