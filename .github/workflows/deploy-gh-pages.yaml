@@ -7,29 +7,31 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout main
+      - name: Checkout repo
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # gh-pages 브랜치까지 푸시하려면 필요
+          fetch-depth: 0
 
-      - name: Set up Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install deps & build
         working-directory: docs-site
-        run: npm ci
+        run: |
+          npm ci
+          npm run build
 
-      - name: Build Docusaurus
-        working-directory: docs-site
-        run: npm run build
-
-      - name: Deploy to gh-pages
+      - name: Deploy to GitHub Pages
         working-directory: docs-site
         env:
           GIT_USER: hyunhwa
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/BnsHyun/I_nori.git
           npx docusaurus deploy
