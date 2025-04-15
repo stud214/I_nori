@@ -23,16 +23,16 @@ jobs:
         working-directory: docs-site
         run: npm ci
 
-      - name: Build Docusaurus
-        working-directory: docs-site
-        run: npm run build
-
       - name: Deploy to GitHub Pages
         working-directory: docs-site
         env:
-          GIT_USER: github-actions[bot]                     # ✅ 반드시 지정
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}         # ✅ 자동 주입됨
+          GIT_USER: hyunhwa                                # ✅ 괄호 없는 사용자명
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}            # ✅ PAT
+
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+          git remote set-url origin https://${GIT_USER}:${GITHUB_TOKEN}@github.com/BnsHyun/I_nori.git
+
           npx docusaurus deploy
