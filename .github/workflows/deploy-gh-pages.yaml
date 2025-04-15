@@ -9,32 +9,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Set Git identity
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-      - name: Install deps & build
+      - name: Install dependencies
         working-directory: docs-site
-        run: |
-          npm ci
-          npm run build
+        run: npm ci
+
+      - name: Build Docusaurus
+        working-directory: docs-site
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         working-directory: docs-site
         env:
-          GIT_USER: x-access-token
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ✅ 자동 주입
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/BnsHyun/I_nori.git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           npx docusaurus deploy
