@@ -30,7 +30,8 @@ jobs:
       - name: Deploy to GitHub Pages
         working-directory: docs-site
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ✅ 자동 주입
+          GIT_USER: github-actions[bot]                     # ✅ 반드시 지정
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}         # ✅ 자동 주입됨
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
