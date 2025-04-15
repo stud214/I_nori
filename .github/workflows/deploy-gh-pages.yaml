@@ -30,13 +30,8 @@ jobs:
       - name: Deploy to GitHub Pages
         working-directory: docs-site
         env:
-          GIT_USER: hyunhwa
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ✅ 자동 주입
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          
-          # ✅ 인증 포함된 remote 설정
-          git remote set-url origin https://hyunhwa:${{ secrets.GH_TOKEN }}@github.com/BnsHyun/I_nori.git
-          
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           npx docusaurus deploy
