@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -24,16 +24,25 @@ jobs:
         working-directory: docs-site
         run: npm ci
 
-      - name: Deploy to GitHub Pages
+      - name: Build Docusaurus
+        working-directory: docs-site
+        run: npm run build
+
+      - name: Configure Git Identity & Remote
         working-directory: docs-site
         env:
-          GIT_USER: hyunhwa                                # ✅ 괄호 없는 사용자명
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}            # ✅ PAT
-
+          GIT_USER: hyunhwa
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
+          # ✅ 명시적으로 remote 인증 포함
           git remote set-url origin https://${GIT_USER}:${GITHUB_TOKEN}@github.com/BnsHyun/I_nori.git
 
-          npx docusaurus deploy
+      - name: Deploy to GitHub Pages
+        working-directory: docs-site
+        env:
+          GIT_USER: hyunhwa
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx docusaurus deploy
