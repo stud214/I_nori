@@ -5,6 +5,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'BnsHyun',
   projectName: 'I_nori',
+  deploymentBranch: 'gh-pages', // ✅ 필수
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   trailingSlash: true,
