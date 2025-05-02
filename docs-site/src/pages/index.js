@@ -10,8 +10,8 @@ export default function Home() {
           <p>이 사이트는 iOS 앱의 기능 명세, API 문서를 정리한 공간입니다.</p>
           <ul>
             <li><a href="/I_nori/intro">🔰 소개 문서</a></li>
-            <li><a href="/I_nori/features/">👥 기능 정의서</a></li>
-            <li><a href="/I_nori/api/">📡 API 명세</a></li>
+            <li><a href="/I_nori/features/childlist">👥 기능 정의서</a></li>
+            <li><a href="/I_nori/api/v1">📡 API 명세</a></li>
           </ul>
         </div>
       </main>

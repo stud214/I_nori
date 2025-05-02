@@ -5,8 +5,10 @@ module.exports = {
       type: 'category',
       label: '기능 정의서',
       items: [
-              'features/invite-user',
-              'features/playlist'
+              'features/childlist',
+              'features/playlist',
+              'features/challenge',
+              'features/invite-user'
               ],
     },
     {
